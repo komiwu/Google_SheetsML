@@ -1,7 +1,12 @@
+Instructions for Local Server setup on Windows10
+(IOS users; sorry, you are on your own)
+
 clone the repo
-Create your Google API service account and the the credentials file
+Create your Google API service account and download the credentials file
+(steps 1-7 @ https://www.fillup.io/post/read-and-write-google-sheets-from-php/)
+(In addition to enabling Google Sheets API, you should enable Google Drive API)
   Rename it to credentials.json
-Place the credentials.json file into resources\php_libraries\Google_Sheets_API\credentials\
+Place the credentials.json file into "resources\php_libraries\Google_Sheets_API\credentials\"
 Open a cmd/terminal and traverse to the project folder ("C:/xampp/htdocs/Google_SheetsML" for me)
   Run "composer update"
   Run "npm install"
@@ -14,8 +19,8 @@ Add this to the file (unless you already have a server linked to localhost):
   </VirtualHost>
 Change the path to reflect your file system.
 
-If you have another server on localhost, you will need to register it under a different name, and
-add a link to it in the hosts file (C:\Windows\System32\drivers\etc\)
+If you have another server on localhost, you will need to register it under a different name,
+and add a link to it in the hosts file (C:\Windows\System32\drivers\etc\)
 Example:
 127.0.0.1	localhost
 127.0.0.1	servername.test
@@ -27,3 +32,8 @@ Open a cmd/terminal and traverse to the project folder ("C:/xampp/htdocs/Google_
   (cmd/terminal must remain open for npm run watch to continue running)
 
 Now just open up your browser and go to the servername you registed (for me its just localhost)
+
+Note: Running multiple projects in Xampp (atleast multiple Laravel projects) may
+  cause some caching issues. I had an issue where project A used files from project B's folders
+  A full reinstall fixed it, but disabling cache any all the other solutions that
+  I found, did not work for me
