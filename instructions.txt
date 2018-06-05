@@ -34,6 +34,6 @@ Open a cmd/terminal and traverse to the project folder ("C:/xampp/htdocs/Google_
 Now just open up your browser and go to the servername you registed (for me its just localhost)
 
 Note: Running multiple projects in Xampp (atleast multiple Laravel projects) may
-  cause some caching issues. I had an issue where project A used files from project B's folders
-  A full reinstall fixed it, but disabling cache any all the other solutions that
+  cause some caching issues. I had an issue where project 'A' used files from project 'B''s folders
+  A full reinstall fixed it, but disabling cache and all the other solutions that
   I found, did not work for me
