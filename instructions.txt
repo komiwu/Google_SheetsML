@@ -11,6 +11,8 @@ Open a cmd/terminal and traverse to the project folder ("C:/xampp/htdocs/Google_
   Run "composer update"
   Run "npm install"
 
+Rename .env.example in the root directory to .env and fill in local info
+
 Edit the httpd-vhost.conf file of your xampp at : path_to_xampp\apache\conf\extra\
 Add this to the file (unless you already have a server linked to localhost):
   <VirtualHost *:80>
