@@ -10,7 +10,10 @@
         <br  /><br  />
         <iframe src="{{ rtrim($results->spreadsheetUrl) }}" height='1000px' width='100%' scrolling="yes"></iframe>
         <br  /><br  />
-        <?php var_dump($results); ?>
+        <pre>
+          <?php //print_r($results);
+          ?>
+        </pre>
       </div>
     </div>
   </div>

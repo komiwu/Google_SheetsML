@@ -12,6 +12,8 @@ class GoogleSheetsController extends Controller
         $basePath = 'Google_Sheets_batchUpdates\\';
         $exercise = 'firstExample\\';
         $paths = ['values_batch' => resource_path($basePath.$exercise.'spreadsheets.values.batchUpdate.json'),
+                  'cellBackgroundColor_batch' => resource_path($basePath.$exercise.'spreadsheets.cell.backgroundColor.batchUpdate.json'),
+                  'cellFormat_batch' => resource_path($basePath.$exercise.'spreadsheets.cell.format.batchUpdate.json'),
                   'chart_batch' => resource_path($basePath.$exercise.'spreadsheets.chart.batchUpdate.json')];
 
         $google_sheet = new GoogleSheets;

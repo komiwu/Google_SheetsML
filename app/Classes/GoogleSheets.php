@@ -90,26 +90,25 @@ class GoogleSheets {
 
       $this->service->spreadsheets_values->batchUpdate($spreadsheetId, $requestBody);
     }
+    unset($requestPaths['values_batch']);
 
-    if(isset($requestPaths['chart_batch'])) {
-      $chartData = (file_get_contents($requestPaths['chart_batch'], FILE_USE_INCLUDE_PATH));
-      $chartData = str_replace("\r\n",'', $chartData);
-      $chartData = str_replace("sourceSheetId" , ''.$this->innerSpreadsheet->getProperties()->getSheetId() , $chartData);
-      $chartData = json_decode($chartData);
+    $requestArray = [];
+    foreach($requestPaths as $requestsPath) {
+      $requests = (file_get_contents($requestsPath, FILE_USE_INCLUDE_PATH));
+      $requests = str_replace("\r\n",'', $requests);
+      $requests = str_replace("sourceSheetId" , ''.$this->innerSpreadsheet->getProperties()->getSheetId() , $requests);
+      $requests = json_decode($requests);
 
-      //\Log::info('values_batch pre decode'.file_get_contents($requestPaths['values_batch'], FILE_USE_INCLUDE_PATH));
-      //Log::info('chart_batch pre decode'.file_get_contents($requestPaths['chart_batch'], FILE_USE_INCLUDE_PATH));
-      //\Log::info('chart_batch after decode :'.(($chartData)));
-      //\Log::info('inner sheet id:'.$this->innerSpreadsheet->getProperties()->getSheetId());
+      foreach($requests->requests as $request) {
+        $requestArray[] = $request;
+      }
 
-      foreach($chartData->requests as $request) {
-        $batchUpdateRequest = new \Google_Service_Sheets_BatchUpdateSpreadsheetRequest([
-          'requests' => $request
-        ]);
-
-        $this->service->spreadsheets->batchUpdate($spreadsheetId, $batchUpdateRequest);
-      } 
     }
+    $batchUpdateRequest = new \Google_Service_Sheets_BatchUpdateSpreadsheetRequest([
+      'requests' => $requestArray
+    ]);
+
+    $this->service->spreadsheets->batchUpdate($spreadsheetId, $batchUpdateRequest);
   }
 
   /**

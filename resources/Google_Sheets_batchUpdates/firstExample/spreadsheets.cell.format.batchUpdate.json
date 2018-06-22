@@ -1,0 +1,44 @@
+{
+  "requests": [
+    {
+      "repeatCell": {
+        "range": {
+          "sheetId": 0,
+          "startRowIndex": 1,
+          "endRowIndex": 7,
+          "startColumnIndex": 5,
+          "endColumnIndex": 6
+        },
+        "cell": {
+          "userEnteredFormat": {
+            "numberFormat": {
+              "type": "NUMBER",
+              "pattern": "#,##0.0###"
+            }
+          }
+        },
+        "fields": "userEnteredFormat.numberFormat"
+      }
+    },
+    {
+      "repeatCell": {
+        "range": {
+          "sheetId": 0,
+          "startRowIndex": 1,
+          "endRowIndex": 7,
+          "startColumnIndex": 6,
+          "endColumnIndex": 7
+        },
+        "cell": {
+          "userEnteredFormat": {
+            "numberFormat": {
+              "type": "PERCENT",
+              "pattern": "##0.0#%"
+            }
+          }
+        },
+        "fields": "userEnteredFormat.numberFormat"
+      }
+    }
+  ]
+}
