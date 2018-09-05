@@ -1,4 +1,5 @@
 Instructions for Local Server setup on Windows10
+(if using XAMPP - use version : 5.6.37 / PHP 5.6.37 @ https://www.apachefriends.org/download.html)
 (IOS users; sorry, you are on your own)
 
 clone the repo
@@ -30,7 +31,7 @@ Example:
 Open your Xampp Control Panel -> Start the Apache and MySQL module
 Open a cmd/terminal and traverse to the project folder ("C:/xampp/htdocs/Google_SheetsML" for me)
   Run "npm run watch"
-  This will compile the css and js of the project and autorecomile any changes made
+  This will compile the css and js of the project and autorecompile any changes made
   (cmd/terminal must remain open for npm run watch to continue running)
 
 Now just open up your browser and go to the servername you registed (for me its just localhost)
