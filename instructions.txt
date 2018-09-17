@@ -9,6 +9,9 @@ Create your Google API service account and download the credentials file
   Rename it to credentials.json
 Place the credentials.json file into "resources\php_libraries\Google_Sheets_API\credentials\"
 Open a cmd/terminal and traverse to the project folder ("C:/xampp/htdocs/Google_SheetsML" for me)
+Install Composer and NPM :
+Composer : https://getcomposer.org/download/
+npm : https://www.npmjs.com/package/npm
   Run "composer update"
   Run "npm install"
 
