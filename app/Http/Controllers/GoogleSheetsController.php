@@ -14,7 +14,8 @@ class GoogleSheetsController extends Controller
         $paths = ['values_batch' => resource_path($basePath.$exercise.'spreadsheets.values.batchUpdate.json'),
                   'cellBackgroundColor_batch' => resource_path($basePath.$exercise.'spreadsheets.cell.backgroundColor.batchUpdate.json'),
                   'cellFormat_batch' => resource_path($basePath.$exercise.'spreadsheets.cell.format.batchUpdate.json'),
-                  'chart_batch' => resource_path($basePath.$exercise.'spreadsheets.chart.batchUpdate.json')];
+                  'chart_batch' => resource_path($basePath.$exercise.'spreadsheets.chart.batchUpdate.json'),
+                  'protectedRange_batch' => resource_path($basePath.$exercise.'spreadsheets.cell.protectedRange.batchUpdate.json')];
 
         $google_sheet = new GoogleSheets;
         $google_sheet->createSpreadsheet();
@@ -22,5 +23,9 @@ class GoogleSheetsController extends Controller
         $google_sheet->setGoogleSpreadsheetPermissions();
 
         return view('google_sheets')->with('results', $google_sheet->spreadsheet);
+    }
+
+    public function refreshSheetValues() {
+      echo "we are in refreshPage() function";
     }
 }

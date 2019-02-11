@@ -21,3 +21,5 @@ Route::get('/home', 'HomeController@index')->name('home');
 Route::get('/projects', 'PageController@getProjects')->name('projects');
 
 Route::get('/projects/google_sheets', 'GoogleSheetsController@getGoogleSheets');
+
+Route::get('/projects/google_sheets/refreshSheetValues', 'GoogleSheetsController@refreshSheetValues');
