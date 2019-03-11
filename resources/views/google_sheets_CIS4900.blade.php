@@ -25,7 +25,7 @@
 
   <br />
   <div class="text-center">
-    <button class="btn btn-primary center-block" type="button" id="refresh_rnd_vals_btn" onclick="test();">Testing Stuff!</button>
+    <button class="btn btn-primary center-block" type="button" id="test_btn" onclick="test();">Testing Stuff!</button>
   </div>
   <br /><br />
   <pre id="responseText">
@@ -37,18 +37,21 @@
 //only needs to send the spreadsheet id in data :{}
 //return : null
 function refresh_random_values() {
+  $("#refresh_rnd_vals_btn").attr("disabled", true);
   console.log("we are in the startAjax function");
   $.ajax({
     type: "GET",
     url: "/api/Sheets_API/refreshSheetValues/<?php print $results->spreadsheetId ?>",
-    async: false,
+    async: true,
     cache: false,
     success: function(result) {
+      $("#refresh_rnd_vals_btn").attr("disabled", false);
       console.log("success on ajax");
       console.log(result);
       //$("#responseText").html(result);
     },
     error: function(data, etype) {
+      $("#refresh_rnd_vals_btn").attr("disabled", false);
       console.log("error on ajax");
       console.log(data);
       $("#responseText").html(data.responseText);
@@ -61,21 +64,21 @@ function refresh_random_values() {
 //only needs to send the spreadsheet id in data: {}
 //return : null
 function populateSpreadsheet() {
-  document.getElementById("pop_btn").disabled = true;
+  $("#pop_btn").attr("disabled", true);
   console.log("we are in the populateSpreadsheet function");
   $.ajax({
     type: "GET",
     url: "/api/Sheets_API/populateSpeadsheet/<?php print $results->spreadsheetId ?>",
-    async: false,
+    async: true,
     cache: false,
     success: function(result) {
-      document.getElementById("pop_btn").disabled = false;
+      $("#pop_btn").attr("disabled", false);
       console.log("success on ajax");
       console.log(result);
       //$("#responseText").html(result);
     },
     error: function(data, etype) {
-      document.getElementById("pop_btn").disabled = false;
+      $("#pop_btn").attr("disabled", false);
       console.log("error on ajax");
       console.log(data);
       $("#responseText").html(data.responseText);
@@ -86,18 +89,21 @@ function populateSpreadsheet() {
 
 //Test function for debugging
 function test() {
+  $("#test_btn").attr("disabled", true);
   console.log("we are in the test function");
   $.ajax({
     type: "GET",
     url: "/api/Sheets_API/test/<?php print $results->spreadsheetId ?>",
-    async: false,
+    async: true,
     cache: false,
     success: function(result) {
+      $("#test_btn").attr("disabled", false);
       console.log("success on ajax");
       console.log(result);
       $("#responseText").html(result);
     },
     error: function(data, etype) {
+      $("#test_btn").attr("disabled", false);
       console.log("error on ajax");
       console.log(data);
       $("#responseText").html(data.responseText);

@@ -221,25 +221,25 @@ class GoogleSheets {
 
   //just a test function
   public function test() {
-    \Log::info("service->spreadsheets_values is of class: ".get_class($this->service->spreadsheets_values));
+    echo ("service->spreadsheets_values is of class: ".get_class($this->service->spreadsheets_values)."\n");
     //This gives us: service->spreadsheets_values is of class: Google_Service_Sheets_Resource_SpreadsheetsValues
-    \Log::info("service->spreadsheets is of class: ".get_class($this->service->spreadsheets));
+    echo ("service->spreadsheets is of class: ".get_class($this->service->spreadsheets)."\n");
     //This gives us: service->spreadsheets is of class: Google_Service_Sheets_Resource_Spreadsheets
     $sheets = new \Google_Service_Sheets_Sheet($this->service);
-    \Log::info("sheets is of class: ".get_class($sheets));
+    echo ("sheets is of class: ".get_class($sheets)."\n");
     //This gives us: sheets is of class: Google_Service_Sheets_Sheet
-    \Log::info("innerSpreadsheet is of class: ".get_class($this->innerSpreadsheet));
+    echo ("innerSpreadsheet is of class: ".get_class($this->innerSpreadsheet)."\n");
     //This gives us: innerSpreadsheet is of class: Google_Service_Sheets_Sheet
-    \Log::info('getCharts on innerSpreadsheet returns :'.json_encode($this->innerSpreadsheet->getCharts()));
+    echo ('getCharts on innerSpreadsheet returns :'.json_encode($this->innerSpreadsheet->getCharts())."\n");
     //This gives us : getCharts on innerSpreadsheet returns :[{"chartId":1454796111},{"chartId":596160616}] if there are two charts
-    \Log::info("The class type of the first chart is : ".get_class($this->innerSpreadsheet->getCharts()[0]));
+    echo ("The class type of the first chart is : ".get_class($this->innerSpreadsheet->getCharts()[0])."\n");
     //This gives us: The class type of the first chart is : Google_Service_Sheets_EmbeddedChart
 
     $chart = $this->innerSpreadsheet->getCharts()[0];
     $spec = $chart->getSpec();
-    \Log::info("The class type of chart's specs is : ".get_class($spec));
+    echo ("The class type of chart's specs is : ".get_class($spec)."\n");
     //This gives us: The class type of chart's specs is : Google_Service_Sheets_ChartSpec
-    \Log::info("The spec contains".json_encode($spec));
+    echo ("The spec contains".json_encode($spec)."\n");
   }
 }
  ?>
