@@ -30,7 +30,7 @@ class GoogleSheets {
   //$this->service->spreadsheets_values is of class Google_Service_Sheets_Resource_SpreadsheetsValues;
 
   /** CONSTRUCTOR
-   * @param null (TODO: add spreadsheetId optionional parameter)
+   * @param null (TODO: add spreadsheetId optional parameter)
    * Create a new GoogleSheets instance.
    * Connects the object to Google Sheets API
    *
