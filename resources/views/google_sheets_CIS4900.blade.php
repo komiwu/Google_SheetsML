@@ -40,7 +40,7 @@ function refresh_random_values() {
   console.log("we are in the startAjax function");
   $.ajax({
     type: "GET",
-    url: "/projects/google_sheets/refreshSheetValues/<?php print $results->spreadsheetId ?>",
+    url: "/api/Sheets_API/refreshSheetValues/<?php print $results->spreadsheetId ?>",
     async: false,
     cache: false,
     success: function(result) {
