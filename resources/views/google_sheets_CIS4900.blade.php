@@ -40,13 +40,9 @@ function refresh_random_values() {
   console.log("we are in the startAjax function");
   $.ajax({
     type: "GET",
-    url: "/projects/google_sheets/refreshSheetValues/",
+    url: "/projects/google_sheets/refreshSheetValues/<?php print $results->spreadsheetId ?>",
     async: false,
     cache: false,
-    data: ({
-      'spreadsheetId' : "<?php print $results->spreadsheetId ?>"
-      <?php ?>
-    }),
     success: function(result) {
       console.log("success on ajax");
       console.log(result);
@@ -69,13 +65,9 @@ function populateSpreadsheet() {
   console.log("we are in the populateSpreadsheet function");
   $.ajax({
     type: "GET",
-    url: "/api/Sheets_API/populateSpeadsheet/",
+    url: "/api/Sheets_API/populateSpeadsheet/<?php print $results->spreadsheetId ?>",
     async: false,
     cache: false,
-    data: ({
-      'spreadsheetId' : "<?php print $results->spreadsheetId ?>"
-      <?php ?>
-    }),
     success: function(result) {
       document.getElementById("pop_btn").disabled = false;
       console.log("success on ajax");
@@ -94,20 +86,16 @@ function populateSpreadsheet() {
 
 //Test function for debugging
 function test() {
-  console.log("we are in the populateSpreadsheet function");
+  console.log("we are in the test function");
   $.ajax({
     type: "GET",
-    url: "/api/Sheets_API/test/",
+    url: "/api/Sheets_API/test/<?php print $results->spreadsheetId ?>",
     async: false,
     cache: false,
-    data: ({
-      'spreadsheetId' : "<?php print $results->spreadsheetId ?>"
-      <?php ?>
-    }),
     success: function(result) {
       console.log("success on ajax");
       console.log(result);
-      //$("#responseText").html(result);
+      $("#responseText").html(result);
     },
     error: function(data, etype) {
       console.log("error on ajax");

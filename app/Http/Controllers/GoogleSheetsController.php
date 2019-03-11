@@ -23,16 +23,16 @@ class GoogleSheetsController extends Controller
     }
 
    /** refreshSheetValues(Request $request)
-    * @param $request - POST/GET variable contents. Used to obtain the spreadsheetId passed through ajax.
+    * @param $id - string. {id} from the Route (It is the spreadsheet's ID)
     * Refresh all volatile functions on a spreadsheet
     *
     * @return null (effects the spreadsheet directly)
     */
-    public function refreshSheetValues(Request $request) {
+    public function refreshSheetValues($id) {
       //TODO: Find a way to do this w/o having to refresh the values twice.
       //We need to be able to trigger the refresh of volatile functions just once; and without effecting the rest of the spreadSheet
 
-      $spreadSheetId = $request->input('spreadsheetId');
+      $spreadSheetId = $id;
       $google_sheet = new GoogleSheets; //establish a connection to Google API
       $google_sheet->getSpreadsheet($spreadSheetId); //fill objects member variables for the spreadsheet with ID : $spreadSheetId);
 
@@ -51,14 +51,14 @@ class GoogleSheetsController extends Controller
     }
 
    /** populateSpreadsheet(Request $request)
-    * @param $request - POST/GET variable contents. Used to obtain the spreadsheetId passed through ajax.
+    * @param $id - string. {id} from the Route (It is the spreadsheet's ID)
     * Do a batch update on the spreadsheet; filling in values, setting cell formats, drawing charts, etc.,
     * This uses json files
     *
     * @return null (effects the spreadsheet directly)
     */
-    public function populateSpreadsheet(Request $request) {
-      $spreadsheetId = $request->input('spreadsheetId');
+    public function populateSpreadsheet($id) {
+      $spreadsheetId = $id;
 
       $google_sheet = new GoogleSheets; //establish a connection to Google API
       $google_sheet->getSpreadsheet($spreadsheetId); //fill objects member variables for the spreadsheet with ID : $spreadSheetId);
@@ -76,8 +76,8 @@ class GoogleSheetsController extends Controller
     }
 
     //Just a testing function
-    public function test(Request $request) {
-      $spreadsheetId = $request->input('spreadsheetId');
+    public function test($id) {
+      $spreadsheetId = $id;
 
       $google_sheet = new GoogleSheets;
       $google_sheet->getSpreadsheet($spreadsheetId);
