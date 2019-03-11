@@ -20,6 +20,8 @@ Auth::routes();
 Route::get('/home', 'HomeController@index')->name('home');
 Route::get('/projects', 'PageController@getProjects')->name('projects');
 
-Route::get('/projects/google_sheets', 'GoogleSheetsController@getGoogleSheets');
+Route::get('/projects/{id}', 'GoogleSheetsController@getGoogleSheets');
 
 Route::get('/projects/google_sheets/refreshSheetValues', 'GoogleSheetsController@refreshSheetValues');
+Route::get('/api/Sheets_API/populateSpeadsheet/', 'GoogleSheetsController@populateSpreadsheet');
+Route::get('/api/Sheets_API/test/', 'GoogleSheetsController@test');

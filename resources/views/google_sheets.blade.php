@@ -1,7 +1,7 @@
 @extends('layouts.app')
 
 @section('content')
-  <h1>Google Sheets (PHP5.6)</h1>
+  <h1 class="text-center">Google Sheets (PHP5.6)</h1>
   <div class="container">
     <div class="card">
       <div class="card-header">Lets import a google sheet</div>
